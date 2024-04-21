@@ -17,8 +17,9 @@ def summary_to_keyframes(summary_fn,target_fn):
     for line in summary:
         print(line[:5],end=' - ')
         frame_no = 60*int(line[:2]) + int(line[3:5])
+        subtask = line.split('.')[1]
         print(frame_no)
-        s+=f'{frame_no}\n'
+        s+=f'{frame_no},{subtask}\n'
     s = s.strip()
 
     f = open(target_fn,'w')
